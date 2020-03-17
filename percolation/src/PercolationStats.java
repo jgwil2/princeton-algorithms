@@ -2,7 +2,6 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    private Percolation[] ps;
     private double[] thresholds;
     private int t;
 
@@ -10,11 +9,11 @@ public class PercolationStats {
     public PercolationStats(int n, int trials) {
         if (n <= 0 || trials <= 0) throw new IllegalArgumentException();
 
-        this.ps = new Percolation[trials];
+        Percolation[] ps = new Percolation[trials];
         this.t = trials;
         this.thresholds = new double[trials];
         for (int i = 0; i < trials; i++) {
-            this.ps[i] = new Percolation(n);
+            ps[i] = new Percolation(n);
             while (!ps[i].percolates()) {
                 int row = StdRandom.uniform(n);
                 int col = StdRandom.uniform(n);
